@@ -174,7 +174,7 @@ All of these instructions expect two operands to execute the given operation of 
 
 ### Floating-point control instructions
 
-As we already know, the main goal of these instructions is to manage the control flow of our programs. For integer comparisons, we used the `cmp` instruction. However, this instruction does not work with floating-point values, even though the result of the comparison is controlled by the same `rflags` registers that we saw in the [Data manipulation](./asm_4.md#control-transfer-instructions) chapter. The general instruction to compare floating-point numbers is `cmpss`. Instead of setting the value of the flag based on the result comparison, the instruction stores the result of the comparison in the destination register.
+As we already know, the main goal of these instructions is to manage the control flow of our programs. For integer comparisons, we used the `cmp` instruction. However, this instruction does not work with floating-point values: unlike an integer comparison, whose result is recorded in the `rflags` register, a floating-point comparison stores its result in the destination register. The general instruction to compare floating-point numbers is `cmpss`. Instead of setting the value of the flag based on the result comparison, the instruction stores the result of the comparison in the destination register.
 
 For example:
 
@@ -194,7 +194,7 @@ The third operand of the instruction identifies the operator:
 |                 4 | !=                                                                     |
 |                 5 | >=                                                                     |
 |                 6 | >                                                                      |
-|                 7 | Checks that both operands are [Nan](https://en.wikipedia.org/wiki/NaN) |
+|                 7 | Checks that neither operand is [NaN](https://en.wikipedia.org/wiki/NaN) |
 
 ## Example
 
